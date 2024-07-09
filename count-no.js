@@ -28,4 +28,5 @@ function countOddEven(arr) {
 }
 
 const arr = [2, 3, 4, 5, 6];
-countOddEven(arr);
+const arr2 = [22, 32, 42, 52, 62];
+countOddEven(arr2);
