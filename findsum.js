@@ -23,8 +23,23 @@ function findSum(arr, target) {
   return false;
 }
 
+// Using Hashing
+function findSum2(arr, target) {
+  const map = new Map();
+  for(let i = 0; i < arr.length; i++) {
+    if (map.get(target - arr[i])) {
+      console.log(arr[i], target);
+      return true;
+    } else {
+      map.set(arr[i], i);
+    }
+  }
+  return false;
+}
+
 const nums1 = [8, 7, 2, 5, 3, 1], target1 = 10;
 const nums2 = [5, 2, 6, 8, 1, 9], target2 = 12;
 
-console.log(findSum(nums2, target2));
+// console.log(findSum(nums2, target2));
+console.log(findSum2(nums1, target1));
 
