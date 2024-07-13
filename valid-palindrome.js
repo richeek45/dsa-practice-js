@@ -27,12 +27,17 @@ function validPalindrome(str) {
     }
   }
 
-  let res2 = res.split('').reverse().join('');
+  let left = 0, right = res.length - 1;
+  while(left < right) {
+    if (res[left] !== res[right]) {
+      return false;
+    }
+    left++; 
+    right--;
+  }
 
-  const isPalindrome = res2 === res;
-  console.log(isPalindrome);
-
+  return true;
 }
 
 const str1 = "A man, a plan, a canal: Panama";
-validPalindrome(str1);
+console.log(validPalindrome(str1));
