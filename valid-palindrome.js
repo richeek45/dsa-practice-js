@@ -30,10 +30,10 @@ function validPalindrome(str) {
   let left = 0, right = str.length - 1;
   while(left < right) {
 
-    while(isAlphanumeric(left, str)) {
+    while(left < right && isAlphanumeric(left, str)) {
       left++;
     }
-    while(isAlphanumeric(right, str)) {
+    while(left < right && isAlphanumeric(right, str)) {
       right--;
     }
 
