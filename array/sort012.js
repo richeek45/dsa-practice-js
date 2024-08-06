@@ -16,17 +16,15 @@ function sort012(arr) {
       }
   }
   
-  for(let i = 0; i < arr.length; i++) {
-      if (x > 0) {
-          arr[i] = 0;
-          x--;
-      } else if (y > 0) {
-          arr[i] = 1;
-          y--;
-      } else if (z > 0) {
-          arr[i] = 2;
-          z--;
-      }
+  let ind = 0;
+  for(let i = 0; i < x; i++) {
+    arr[ind++] = 0;
+  }
+  for(let i = 0; i < y; i++) {
+    arr[ind++] = 1;
+  }
+  for(let i = 0; i < z; i++) {
+    arr[ind++] = 2;
   }
 }
 
