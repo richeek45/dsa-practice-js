@@ -28,5 +28,24 @@ function sort012(arr) {
   }
 }
 
-sort012(arr);
+function sort012b(arr) {
+  let n = arr.length;
+  let low = 0, high = n - 1;
+  let mid = 0;
+
+  while (mid <= high) {
+      if (arr[mid] === 0) {
+          [arr[low], arr[mid]] = [arr[mid], arr[low]];
+          low++;
+          mid++;
+      } else if (arr[mid] === 1) {
+          mid++;
+      } else if (arr[mid] === 2) {
+          [arr[mid], arr[high]] = [arr[high], arr[mid]];
+          high--;
+      }
+  }
+}
+
+sort012b(arr);
 console.log(arr);
