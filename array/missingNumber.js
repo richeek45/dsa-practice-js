@@ -3,6 +3,9 @@
 const arr = [1, 2, 4, 6, 3, 7, 8];
 const N = 8;
 
+const arr1 = [1, 2, 3, 5];
+const N1 = 5;
+
 function missing1(arr, k) {
     let x1 = 0, x2 = 0;
     let n = arr.length;
@@ -33,5 +36,5 @@ function missing2(arr, k) {
 
 }
 
-const val = missing2(arr, N);
+const val = missing2(arr1, N1);
 console.log(val);
