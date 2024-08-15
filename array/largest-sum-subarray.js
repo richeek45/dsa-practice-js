@@ -9,14 +9,14 @@ function largestSumArray(arr) {
   while(right < n) {
     sum += arr[right++];
 
-  if (sum < 0) {
-    sum = 0;
-    left = 0;
-  }
+    if (sum < 0) {
+      sum = 0;
+      left = 0;
+    }
 
-  if (sum > max) {
-    max = sum;
-  }
+    if (sum > max) {
+      max = sum;
+    }
   }
 
   console.log(max);
