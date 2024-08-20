@@ -23,4 +23,22 @@ function jumpGame(arr) {
   console.log(count);
 }
 
-jumpGame(arr);
+function jumpGame1(arr, n) {
+  if (n === 1) {
+    return 0;
+  }
+
+  let res = Number.MAX_VALUE;
+  for(let i = n - 2; i >= 0; i--) {
+    if (i + arr[i] >= n - 1) {
+      let subRes = jumpGame1(arr, i + 1);
+      if (subRes !== Number.MAX_VALUE) {
+        res = Math.min(subRes + 1, res);
+      }
+    }
+  }
+
+  return res;
+}
+
+console.log(jumpGame1(arr, arr.length));
