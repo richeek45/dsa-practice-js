@@ -45,5 +45,23 @@ function maxRotateSum1(arr) {
     return res;
 }
 
+function maxRotateSum2(arr1) {
+    let n = arr.length;
+    let index = -1;
+    for (let i = 0; i < n; i++) {
+        if (arr[i] > arr[(i + 1) % n]) {
+            index = i;
+        }
+    }
+    
+    let sum = 0;
+    
+    for (let i = 0; i < n; i++) {
+        sum += ((index + 1 + i) % n) * arr[i];
+    }
+    
+    return sum;
+}
+
 // console.log(maxRotateSum(arr1));
 console.log(maxRotateSum1(arr1));
