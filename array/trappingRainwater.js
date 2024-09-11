@@ -60,6 +60,28 @@ function trappingRainwater2(arr) {
   return water;
 }
 
-console.log(trappingRainwater2(arr));
+// Using two pointer approach calculating max height from both sides 
+function trappingRainwater3(arr) {
+  let n = arr.length;
+  let lMax = arr[0], rMax = arr[n-1];
+  let left = 0, right = n - 1;
+  let water = 0;
+
+  while(left <= right) {
+    if (lMax <= rMax) {
+      water += Math.max(0, lMax - arr[left]);
+      lMax = Math.max(lMax, arr[left]);
+      left++;
+    } else {
+      water += Math.max(0, rMax - arr[right]);
+      rMax = Math.max(rMax, arr[right]);
+      right--;
+    }
+  }
+
+  return water;
+}
+
+console.log(trappingRainwater3(arr));
 
 
