@@ -32,8 +32,34 @@ function trappingRainwater1(arr) {
   return water;
 }
 
-console.log(trappingRainwater(arr));
+// Using stack 
+function trappingRainwater2(arr) {
+  let stack = [];
+  let n = arr.length;
+  let water = 0;
 
+  for (let i = 0; i < n; i++) {
+    while (stack.length !== 0 && arr[i] > arr[stack[stack.length-1]]) {
+      let midHeight = arr[stack.pop()];
 
+      if(stack.length == 0) {
+        break
+      }
+
+      let lIndex = stack[stack.length-1];
+      let lHeight = arr[lIndex];
+      let rHeight = arr[i];
+      let minH = Math.min(lHeight, rHeight);
+      water += (minH - midHeight) * (i - lIndex - 1);
+
+    }
+    stack.push(i);
+
+  }
+
+  return water;
+}
+
+console.log(trappingRainwater2(arr));
 
 
