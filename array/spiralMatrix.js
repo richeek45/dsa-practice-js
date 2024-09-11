@@ -75,4 +75,38 @@ function spiralMatrix(arr) {
 
 }
 
-spiralMatrix(matrix1)
+
+function spiralMatrix1(arr) {
+  let row = arr.length;
+  let col = arr[0].length;
+  let result = [];
+  let visited = Array.from({ length: row}, () => new Array(col).fill(false));
+
+  let dx = [0, 1,  0, -1];
+  let dy = [1, 0, -1,  0];
+  let dir = 0;
+
+  let r = 0, c = 0;
+
+
+  for (let i = 0; i < row * col; i++) {
+    result.push(arr[r][c]);
+    visited[r][c] = true;
+
+    let newRow = r + dx[dir];
+    let newCol = c + dy[dir];
+
+    if (newRow >= 0 && newRow < row && newCol >= 0 && newCol < col && !visited[newRow][newCol]) {
+      r = newRow;
+      c = newCol;
+    } else {
+      dir = (dir + 1) % 4;
+      r += dx[dir];
+      c += dy[dir];
+    }
+  }
+
+  console.log(result);
+}
+
+spiralMatrix1(matrix1)
